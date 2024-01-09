@@ -32,4 +32,18 @@ RSpec.describe "passenger" do
     expect(matt.adult?).to eq(true)
     expect(fred.adult?).to eq(false)
   end
+
+  it "can dtermine if the person is the driver" do
+    attributes = {
+      "name" => "Matt",
+      "age" => 37
+    }
+    matt = Passenger.new(attributes)
+
+    expect(matt.driver?).to eq(false)
+
+    matt.drive
+
+    expect(matt.driver?).to eq(true)
+  end
 end
